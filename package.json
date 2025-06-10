@@ -3,10 +3,14 @@
   "displayName": "Claude Image Paste",
   "description": "Seamlessly paste images from clipboard or files into VS Code terminal for Claude Code conversations",
   "version": "1.0.0",
-  "publisher": "agg",
+  "publisher": "agg4code",
   "author": {
     "name": "agg",
     "email": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": " https://github.com/aggroot/claude-image-paste.git"
   },
   "icon": "icon.png",
   "engines": {
