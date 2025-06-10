@@ -1,0 +1,45 @@
+{
+  "name": "claude-image-paste",
+  "displayName": "Claude Image Paste",
+  "description": "Seamlessly paste images from clipboard or files into VS Code terminal for Claude Code conversations",
+  "version": "1.0.0",
+  "publisher": "agg",
+  "author": {
+    "name": "agg",
+    "email": ""
+  },
+  "icon": "icon.png",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": ["Other", "Snippets"],
+  "keywords": ["claude", "ai", "assistant", "image", "paste", "clipboard"],
+  "activationEvents": [],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [{
+      "command": "claude-image-paste.pasteImage",
+      "title": "Paste Image for Claude",
+      "category": "Claude"
+    }],
+    "keybindings": [{
+      "command": "claude-image-paste.pasteImage",
+      "key": "ctrl+shift+alt+i",
+      "when": "terminalFocus"
+    }],
+    "configuration": {
+      "title": "Claude Image Paste",
+      "properties": {
+        "claudeImagePaste.saveDirectory": {
+          "type": "string",
+          "default": "",
+          "description": "Custom directory to save pasted images. Leave empty to use system temp directory. Supports ~ for home directory. Relative paths are resolved relative to workspace root."
+        }
+      }
+    }
+  },
+  "scripts": {},
+  "devDependencies": {
+    "@types/vscode": "^1.74.0"
+  }
+}
