@@ -38,6 +38,11 @@
           "type": "string",
           "default": "",
           "description": "Custom directory to save pasted images. Leave empty to use system temp directory. Supports ~ for home directory. Relative paths are resolved relative to workspace root."
+        },
+        "claudeImagePaste.skipRenamePrompt": {
+          "type": "boolean",
+          "default": false,
+          "description": "Skip the file rename prompt and automatically use the default filename when pasting images."
         }
       }
     }
