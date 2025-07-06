@@ -155,11 +155,16 @@ function activate(context) {
                         // Step 3c: Move to custom directory if user has configured one
                         let finalPath = await handleCustomSaveDirectory(convertedTempPath);
                         
-                        // Step 3d: Give user opportunity to rename the file
-                        finalPath = await promptForFileRename(finalPath);
+                        // Step 3d: Give user opportunity to rename the file (if not skipped)
+                        const config = vscode.workspace.getConfiguration(CONFIG_SECTION);
+                        const skipRenamePrompt = config.get('skipRenamePrompt', false);
                         
-                        // Step 3e: Insert the file path into the active terminal
-                        activeTerminal.sendText(finalPath, false);
+                        if (!skipRenamePrompt) {
+                            finalPath = await promptForFileRename(finalPath);
+                        }
+                        
+                        // Step 3e: Insert the file path into the active terminal with @ prefix for Claude Code
+                        activeTerminal.sendText(`@${finalPath}`, false);
                         
                         // Step 3f: Show success notification with file details
                         showSuccessMessage(finalPath);
